@@ -1,0 +1,41 @@
+{
+    "$schema": "../../schemas/dev-project.schema.json",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "name": "contoso-dev-project",
+    "resourceGroup": "rg-contoso-dev-project",
+    "devCenterId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-contoso-dev-center/providers/Microsoft.DevCenter/devcenters/contoso-dev-center",
+    "features": {
+        "devBox": {
+            "pools": [
+                {
+                    "name": "contoso-pool-a",
+                    "displayName": "Contoso Pool A",
+                    "definition": {
+                        "name": "VS2022EntBox"
+                    },
+                    "settings": {
+                        "enableLocalAdmin": false,
+                        "enableSingleSignOn": false
+                    },
+                    "networkRegions": [
+                        "UK South"
+                    ]
+                },
+                {
+                    "name": "contoso-pool-b",
+                    "displayName": "Contoso Pool B",
+                    "definition": {
+                        "name": "VS2022EntBox"
+                    },
+                    "settings": {
+                        "enableLocalAdmin": false,
+                        "enableSingleSignOn": false
+                    },
+                    "networkRegions": [
+                        "West Europe"
+                    ]
+                }
+            ]
+        }
+    }
+}

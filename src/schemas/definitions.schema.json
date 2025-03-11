@@ -1,0 +1,159 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://github.com/carmada-dev/devcenter-starter/schemas/definitions.schema.json",
+	"$defs": {
+		"guid": {
+			"type": "string",
+			"pattern":"^[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$"
+		},
+		"principal": {
+			"type": "object",
+			"properties": {
+				"principalId":{
+					"$ref": "#/$defs/guid"
+				},
+				"principalType": {
+					"type": "string",
+					"enum": [
+						"User",
+						"Group"
+					]
+				}
+			},
+			"required": [
+				"principalId",
+				"principalType"
+			],
+			"additionalProperties": false
+		},
+		"locations": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/location"
+			}
+		},
+		"location": {
+			"type": "string",
+			"enum": [
+				"Australia East",
+				"Canada Central",
+				"West Europe",
+				"Japan East",
+				"UK South",
+				"East US",
+				"East US 2",
+				"South Central US",
+				"West US 3",
+				"Central India",
+				"East Asia",
+				"North Europe",
+				"Korea Central"
+			]
+		},
+		"devboxsku": {
+            "type": "string",
+            "enum": [
+                "general_i_8c32gb1024ssd_v2"
+            ]
+        },
+        "devboxstorage": {
+            "type": "string",
+            "enum": [
+                "ssd_256gb",
+                "ssd_512gb",
+                "ssd_1024gb",
+                "ssd_2048gb"
+            ]
+        },
+		"networkReference": {
+			"type": "object",
+			"properties": {
+				"subnetId": {
+					"$ref": "#/$defs/resourceId"
+				},
+				"name": {
+					"$ref": "string"
+				},
+				"type": {
+					"const": "Reference"
+				}
+			},
+			"required": [
+				"subnetId", "name", "type"
+			]
+		},
+		"networkDefintiion": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"$ref": "#/$defs/resourceName"
+				},
+				"type": {
+					"const": "Definition"
+				},
+				"addressPrefixes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/addressPrefix"
+					}
+				},
+				"subnets": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"$ref": "#/$defs/resourceName",
+								"default": "default"
+							},
+							"addressPrefix": {
+								"$ref": "#/$defs/addressPrefix"
+							}
+						},
+						"additionalProperties": false,
+						"minItems": 1,
+						"required": [
+							"name", "addressPrefix"
+						]
+					}
+				}
+			},
+			"required": [
+				"name", "type"
+			]
+		},
+		"addressPrefix": {
+			"type": "string",
+			"pattern": "((^|\\.)((25[0-5])|(2[0-4]\\d)|(1\\d\\d)|([1-9]?\\d))){4}\\/(?:\\d|[12]\\d|3[01])$"
+		},
+		"addressPrefix25": {
+			"type": "string",
+			"pattern": "((^|\\.)((25[0-5])|(2[0-4]\\d)|(1\\d\\d)|([1-9]?\\d))){4}\\/25$"
+		},
+		"resourceId": {
+			"type": "string",
+			"pattern": "^\\/subscriptions\\/[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}\\/resourceGroups\\/.*\\/providers\\/.*"
+		},
+		"resourceIdSubscriptionOptional": {
+			"type": "string",
+			"pattern": "^(\\/subscriptions\\/[0-9A-Fa-f]{8}(?:-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12})?\\/resourceGroups\\/.*\\/providers\\/.*"
+		},
+		"resourceName": {
+			"type": "string",
+			"pattern": "^[a-zA-Z0-9_-]*[a-zA-Z0-9_]$"
+		},
+		"tags": {
+			"type": "object",
+			"patternProperties": {
+				"^.*$": {
+					"anyOf": [
+						{
+							"type": "string"
+						}
+					]
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

@@ -1,0 +1,177 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://github.com/carmada-dev/devcenter-starter/schemas/dev-project.schema.json",
+	"title": "DevProject",
+	"description": "Dev Center Project configuration",
+	"type": "object",
+	"$defs": {
+		"devBox": {
+            "type": "object",
+            "description": "Dev Box features",
+            "properties": {
+                "pools": {
+                    "description": "Dev Box Pools",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/$defs/manageddevboxpool"
+                            },
+                            {
+                                "$ref": "#/$defs/unmanageddevboxpool"
+                            }
+                        ]
+                    },
+                    "minItems": 0
+                }
+            },
+            "additionalProperties": false
+        },
+        "devboxpoolsettings": {
+            "type": "object",
+            "properties": {
+                "enableLocalAdmin": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable local admin privilege for Dev Box creators"
+                },
+                "enableSingleSignOn": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable Single Sign On for newly created Dev Boxes"
+                }
+            },
+            "additionalProperties": false,
+            "required": ["enableLocalAdmin", "enableSingleSignOn"]
+        },
+        "devpooldefinitionreference": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Dev Box definition to use for the pool"
+                }
+            },
+            "additionalProperties": false,
+            "required": ["name"]
+        },
+		"manageddevboxpool": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "./definitions.schema.json#/$defs/resourceName",
+                    "description": "The name of the Dev Box pool"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the Dev Box pool"
+                },
+                "definition": {
+                    "type": "object",
+                    "description": "The Dev Box definition to use for the pool",
+                    "oneOf": [
+                        {
+                            "$ref": "#/$defs/devpooldefinitionreference"
+                        }
+                    ]
+                },
+                "settings" : {
+                    "$ref": "#/$defs/devboxpoolsettings",
+                    "description": "The settings for the Dev Box pool"
+                },
+                "networkRegions": {
+                    "$ref": "./definitions.schema.json#/$defs/locations",
+                    "description": "The network regions of the Dev Box pool. This is only required when using a Microsoft managed network connection (Managed network)"
+                }
+            },
+            "required": [
+                "name", "definition", "settings"
+            ],
+            "additionalProperties": false
+        },
+        "unmanageddevboxpool": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "./definitions.schema.json#/$defs/resourceName",
+                    "description": "The name of the Dev Box pool"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the Dev Box pool"
+                },
+                "definition": {
+                    "type": "object",
+                    "description": "The Dev Box definition to use for the pool",
+                    "oneOf": [
+                        {
+                            "$ref": "#/$defs/devpooldefinitionreference"
+                        }
+                    ]
+                },
+                "networkName": {
+                    "type": "string",
+                    "description": "The name of the network connection to use for the pool. This is only required when using a customer managed network connection (Unmanaged network)"
+                },
+                "settings" : {
+                    "$ref": "#/$defs/devboxpoolsettings",
+                    "description": "The settings for the Dev Box pool"
+                }
+            },
+            "required": [
+                "name", "definition", "settings"
+            ],
+            "additionalProperties": false
+        }
+	},
+    "properties": {
+		"$schema": {
+			"type": "string"
+		},
+        "subscriptionId": {
+            "$ref": "./definitions.schema.json#/$defs/guid",
+            "description": "Subscription ID for the Dev Center Project resource deployment"
+        },
+        "name": {
+			"description": "Name of the Dev Center Project",
+            "$ref": "./definitions.schema.json#/$defs/resourceName"
+		},
+        "resourceGroup": {
+			"description": "Name of the Resource Group",
+            "$ref": "./definitions.schema.json#/$defs/resourceName"
+		},
+        "devCenterId": {
+			"$ref": "./definitions.schema.json#/$defs/resourceIdSubscriptionOptional",
+			"description": "Resource ID of the parent Dev Center"
+		},
+        "networks": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "./definitions.schema.json#/$defs/networkReference",
+                        "additionalProperties": false,
+                        "description": "Reference to an existing subnet that already exists"
+                    },
+                    {
+                        "$ref": "./definitions.schema.json#/$defs/networkDefintiion",
+                        "additionalProperties": false,
+                        "description": "Defines a new subnet to be created as part of this deployment"
+                    }
+                ]
+            },
+            "description": "Networks to be used by the Dev Center Project. Can be a reference to an existing subnet (by specifying subnetId) or a new subnet definition"
+        },
+		"features": {
+            "type": "object",
+            "properties": {
+                "devBox": {
+                    "$ref": "#/$defs/devBox",
+                    "description": "Dev Box features"
+                }
+            }
+        }
+    },
+    "required": ["$schema", "name", "resourceGroup", "devCenterId"],
+    "additionalProperties": false
+}

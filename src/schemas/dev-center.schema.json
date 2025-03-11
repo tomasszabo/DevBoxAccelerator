@@ -1,0 +1,124 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://github.com/carmada-dev/devcenter-starter/schemas/dev-center.schema.json",
+	"title": "DevCenter",
+	"description": "DevCenter configuration",
+	"type": "object",
+    "$defs": {
+        "devBox": {
+            "type": "object",
+            "description": "Include a Dev Box",
+            "properties": {
+                "settings": {
+                    "type": "object",
+                    "properties": {
+                        "allowMicrosoftHostedNetworkInProjects": {
+                            "type": "boolean",
+                            "default": true,
+                            "description": "Allow Microsoft hosted network in projects"
+                        },
+                        "enableAzureMonitorAgentInstallation": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Enable Azure Monitor agent installation"
+                        }
+                    }
+                },
+                "gallery": {
+                    "description": "Dev Box Gallery",
+                    "$ref": "#/$defs/gallery"
+                },
+                "definitions": {
+                    "description": "Definitions for the Dev Box",
+                    "type": "array",
+                    "items": {
+                       "$ref": "#/$defs/devboxdefinition"
+                    },
+                    "minItems": 1
+                }
+            },
+            "additionalProperties": false
+        },
+        "gallery": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name of the Dev Box Gallery",
+                    "$ref": "./definitions.schema.json#/$defs/resourceName"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "devboxdefinition": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "$ref": "./definitions.schema.json#/$defs/resourceName",
+                    "description": "The name of the DevBox definition"
+                },
+                "image": {
+                    "$ref": "./definitions.schema.json#/$defs/resourceName",
+                    "description": "The image of the DevBox definition"
+                },
+                "sku": {
+                    "$ref": "./definitions.schema.json#/$defs/devboxsku",
+                    "description": "The SKU of the DevBox definition"
+                },
+                "storage": {
+                    "$ref": "./definitions.schema.json#/$defs/devboxstorage",
+                    "description": "The storage of the DevBox definition"
+                }
+            },
+            "required": [
+                "name",
+                "image",
+                "sku",
+                "storage"
+            ]
+        }
+    },
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+        "subscriptionId": {
+            "$ref": "./definitions.schema.json#/$defs/guid",
+            "description": "Subscription ID for the Dev Center resource deployment"
+        },
+        "name": {
+			"description": "Name of the DevCenter",
+            "$ref": "./definitions.schema.json#/$defs/resourceName"
+		},
+        "resourceGroup": {
+			"description": "Name of the Resource Group",
+            "$ref": "./definitions.schema.json#/$defs/resourceName"
+		},
+        "location": {
+			"$ref": "./definitions.schema.json#/$defs/location",
+			"description": "Location of the DevCenter"
+		},
+        "settings": {
+            "type": "object",
+            "properties": {
+                "enableCatalogsPerProject": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable Catalogs per Project"
+                }
+            },
+            "additionalProperties": false
+        },
+        "features": {
+            "type": "object",
+            "properties": {
+                "devBox": {
+                    "$ref": "#/$defs/devBox",
+                    "description": "Include a Dev Box"
+                }
+            }
+        }
+    },
+    "required": ["$schema", "name", "resourceGroup", "location"],
+    "additionalProperties": false
+}
