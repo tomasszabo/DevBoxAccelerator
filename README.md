@@ -16,7 +16,7 @@ The Dev Center accelerator slots into the wider enterprise landing zone architec
 
 The accelerator is mainly concerned with what gets deployed in the landing zone subscription highlighted by the red boxes in the picture above. It is assumed that an appropriate platform foundation is already setup which may or may not be the official [ESLZ](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/) platform foundation. This means that policies and governance should already be in place or should be setup after this implementation and are not a part of the scope this reference implementation. The policies applied to management groups in the hierarchy above the subscription will trickle down to the Dev Center Landing Zone Accelerator landing zone subscription. Having a platform foundation is not mandatory, it just enhances it. The modularized approach used in this program allows the user to pick and choose whatever portion is useful to them. You don't have to use all the resources provided by this program.
 
-## :mag: Design areas
+## :mag: Design Areas
 
 ### Dev Box Design Areas
 
@@ -40,7 +40,7 @@ This repo contains Dev Center reference implementations, all with supporting Inf
 
 *More reference implementation scenarios will be added as they become available.*
 
-## Getting started
+## Getting Started
 
 ### Prerequisites
 
@@ -53,13 +53,13 @@ To deploy the reference implementations you will need the following tooling inst
 > [!IMPORTANT]
 > You must have contributor rights on the subscriptions where the [Dev Center](https://learn.microsoft.com/azure/templates/microsoft.devcenter/devcenters) and [Dev Center project](https://learn.microsoft.com/azure/templates/microsoft.devcenter/projects) resources will be deployed to. Typically, as-per the [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture), Dev Center is deployed to a platform subscription and Dev Center Projects are deployed to a separate workload/app subscription. However, you can use the same subscription for both deployments if you do not have a platform foundation in place.
 
-### Deploying reference implementations
+### Deploying Reference Implementations
 
 The [Dev Center](https://learn.microsoft.com/azure/templates/microsoft.devcenter/devcenters) and [Dev Center project](https://learn.microsoft.com/azure/templates/microsoft.devcenter/projects) deployments are performed separately as standalone actions in this example.
 
 This landing zone accelerator uses a [configuration-based deployment](/docs/configuration-based-deployment.md) approach. The JSON configuration files provided are specific to each scenario (see [Deployment scenarios](#rocket-deployment-scenarios)) and are specified as command line parameters when executing the deployment scripts. The steps are otherwise consistent for all [scenarios](#rocket-deployment-scenarios).
 
-#### Predeployment steps
+#### Predeployment Steps
 
 1. If you have not done so already, clone this repository.
 
@@ -80,7 +80,7 @@ git clone https://github.com/your-repo/devboxaccelerator.git
     > [!NOTE]
     > If you have multiple tenants, consider targeting a specific tenant using the ```--tenant TENANT_ID``` option to ensure you are logging into the correct one and deploying resources within that tenant's context.
 
-#### Deployment steps
+#### Deployment Steps
 
 Ensure you have completed the requisite [predeployment steps](#predeployment-steps) before executing the [Dev Center](#deploy-dev-center) or [Dev Center project](#deploy-dev-project) deployments.
 
@@ -114,11 +114,11 @@ To run these steps, you will need to have a [Dev Center](#deploy-dev-center) res
     ./deploy.sh -s <subscription_id> -c <configuration_filepath>
     ```
 
-#### Dev Project postdeployment
+#### Dev Project Post-deployment
 
 1. [Grant access to the dev box project](https://learn.microsoft.com/azure/dev-box/how-to-dev-box-user#assign-permissions-to-dev-box-users) by assigning users to the built-in ```Dev Center Dev Box User``` role.
 
-## Got a feedback
+## Give Feedback
 
 Please leverage issues if you have any feedback or request on how we can improve on this repository.
 

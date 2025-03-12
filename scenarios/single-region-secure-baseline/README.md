@@ -1,4 +1,4 @@
-# Single Region Secure Baseline Dev Box implementation
+# Single Region Secure Baseline Dev Box Implementation
 
 In this scenario, a [Dev Center](https://learn.microsoft.com/azure/templates/microsoft.devcenter/devcenters) and [Dev Center project](https://learn.microsoft.com/azure/templates/microsoft.devcenter/projects), along with the requisite components supporting use of Microsoft Dev Box, are deployed within a single region. This follows the [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture) as illustrated in the diagram below.
 
@@ -7,11 +7,11 @@ In this scenario, a [Dev Center](https://learn.microsoft.com/azure/templates/mic
 
 The subset of components being provisioned in this example are presented as part of a broader set of subscriptions and resources to provide context on their placement within the overall [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture).
 
-## Core architecture components
+## Core Architecture Components
 
 The relevant subset of components from the diagram (above) are typically deployed across two subscriptions; a platform and a workload/app subscription.
 
-### Platform subscription
+### Platform Subscription
 
 Shared services subscription hosting platform team capabilities.
 
@@ -21,7 +21,7 @@ Key resources being deployed / configured:
   - Log Analytics workspace
   - Dev Box image definitions
 
-### Workload/app subscription
+### Workload/app Subscription
 
 Workload subscription where application and/or project specific resources are deployed.
 
@@ -31,18 +31,18 @@ Key resources being deployed / configured:
   - Networks/connections
   - Dev Box Pools
 
-## Automated deployment
+## Automated Seployment
 
 The following sample JSON configuration files can be used as a starting point for this scenario.
 
 - [dev-center-contoso.sample.json](../../src/dev-center/config/dev-center-contoso.sample.json)
 - [dev-project-contoso.sample.json](../../src/dev-project/config/dev-project-contoso.sample.json)
 
-### Deployment steps
+### Deployment Steps
 
 Refer to the main [read me](../../README.md) for instructions on [deploying reference implementations](../../README.md#deploying-reference-implementations). Scenario specific steps are described below along with CLI commands for convenience.
 
-#### Dev Center deployment
+#### Dev Center Deployment
 
 No additional mandatory steps. Dev Center deployment CLI command assuming ```src > dev-center``` as the current directory:
 
@@ -50,7 +50,7 @@ No additional mandatory steps. Dev Center deployment CLI command assuming ```src
 ./deploy.sh -c config/<your_dev_center_configuration>.json -s <target_subscription_id>
 ```
 
-#### Dev Project predeployment
+#### Dev Project Pre-deployment
 
 1. Refer to the JSON file output by the prerequisite [dev center deployment](#dev-center-deployment). This is output to the same folder as the configuration file being referenced using the same filename with an ```output``` suffix. This contains the requisite ```devCenterId``` value for use in the dev center project configuration.
 
