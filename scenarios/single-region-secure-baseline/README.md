@@ -31,7 +31,7 @@ Key resources being deployed / configured:
   - Networks/connections
   - Dev Box Pools
 
-## Automated Seployment
+## Automated Deployment
 
 The following sample JSON configuration files can be used as a starting point for this scenario.
 
