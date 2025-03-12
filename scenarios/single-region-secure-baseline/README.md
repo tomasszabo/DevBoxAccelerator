@@ -4,7 +4,8 @@ In this scenario, a [Dev Center](https://learn.microsoft.com/azure/templates/mic
 
 ![Conceptual reference architecture for single region secure baseline scenario](../../images/single_region_secure_baseline.png)
 
-The subset of components being provisionged in this example are presented as part of a broader set of subscriptions and components to provide context as to where they fit into the overall [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture).
+
+The diagram above illustrates a conceptual reference architecture for the single region secure baseline scenario, with the Dev Box components highlighted by a yellow background. These components are shown within a broader set of subscriptions and resources to provide context on their placement within the overall [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture).
 
 ## Core architecture components
 
@@ -17,12 +18,12 @@ Shared services subscription hosting platform team capabilities.
 Key resources being deployed / configured:
 
 - **Dev Center**
-  - Azure Monitor and Log Analytics
+  - Log Analytics workspace
   - Dev Box image definitions
 
 ### Workload/app subscription
 
-Worload subscription where application and/or project specific resources are deployed.
+Workload subscription where application and/or project specific resources are deployed.
 
 Key resources being deployed / configured:
 
