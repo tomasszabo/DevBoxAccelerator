@@ -2,15 +2,15 @@
 
 ## Overview
 
-Enterprise-scale is an architectural approach that leverages modular designs and reference implementations to help organizations manage and scale their Azure environments to meet their evolving business needs. This approach aligns with the [Azure roadmap](https://aka.ms/azureroadmap) and the [Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/).
+The purpose of this accelerator is to provide a starting point for customers looking to use Microsoft Dev Center to improve developer productivity in Azure.
 
-The purpose of this LZA is to provide a starting point for customers looking to use Microsoft Dev Center to improve developer productivity in Azure. This repository includes Bicep IaC (infrastructure as code) samples that can be used to accelerate the journey to Dev Box. These resources can be adjusted as needed for use by your organization.
+The current focus is on Dev Box, with Bicep IaC samples designed to accelerate adoption and expedite the build process. However, the repository will expand over time to include support for Azure Deployment Environments and additional tooling. Various scenarios will be provided to help customers at different stages of their Dev Center journey. Anonymous customer feedback will be continuously reviewed and incorporated to refine and improve the repository as it evolves.
 
-This repository will contain various scenarios to enable different customers at different stages of their Dev Center journey to benefit from the content. Each scenario will take the Microsoft recommended practices and provide an initial architecture and IaC to expedite the build process. Anonymous customer feedback will also be continiuously reviewed and incorporated into the LZA to improve the repo over time.
+For an overview of 
 
 ## Architectural Diagram
 
-The Dev Center accelerator slots into the wider enterprise landing zone architecture as seen below.
+The Dev Center accelerator slots into the wider enterprise-scale landing zone architecture as seen below. Enterprise-scale is an architectural approach that leverages modular designs and reference implementations to help organizations manage and scale their Azure environments to meet their evolving business needs. This approach aligns with the [Azure roadmap](https://aka.ms/azureroadmap) and the [Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/).
 
 ![DevBox High-Level Architecture](/images/devbox-enterprise-scale-architecture.png)
 
@@ -19,6 +19,10 @@ The accelerator is mainly concerned with what gets deployed in the landing zone 
 ## :mag: Design Areas
 
 ### Dev Box Design Areas
+
+Watch this video for a high-level overview of the Dev Box architecture.
+
+[![Dev Box overview](https://img.youtube.com/vi/qT_6bnbMtbs/0.jpg)](https://www.youtube.com/watch?v=qT_6bnbMtbs)
 
 | Design Area|Considerations|Recommendations|
 |:--------------:|:--------------:|:--------------:|
