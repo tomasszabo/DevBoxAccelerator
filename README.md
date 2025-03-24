@@ -6,8 +6,6 @@ The purpose of this accelerator is to provide a starting point for customers loo
 
 The current focus is on Dev Box, with Bicep IaC samples designed to accelerate adoption and expedite the build process. However, the repository will expand over time to include support for Azure Deployment Environments and additional tooling. Various scenarios will be provided to help customers at different stages of their Dev Center journey. Anonymous customer feedback will be continuously reviewed and incorporated to refine and improve the repository as it evolves.
 
-For an overview of 
-
 ## Architectural Diagram
 
 The Dev Center accelerator slots into the wider enterprise-scale landing zone architecture as seen below. Enterprise-scale is an architectural approach that leverages modular designs and reference implementations to help organizations manage and scale their Azure environments to meet their evolving business needs. This approach aligns with the [Azure roadmap](https://aka.ms/azureroadmap) and the [Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/).
@@ -20,7 +18,7 @@ The accelerator is mainly concerned with what gets deployed in the landing zone 
 
 ### Dev Box Design Areas
 
-Watch this video for a high-level overview of the Dev Box architecture.
+If you're new to Dev Box, watch this video for a high-level overview of the architecture.
 
 [![Dev Box overview](https://img.youtube.com/vi/qT_6bnbMtbs/0.jpg)](https://www.youtube.com/watch?v=qT_6bnbMtbs)
 
