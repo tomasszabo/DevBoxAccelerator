@@ -4,7 +4,7 @@ In this scenario, a [Dev Center](https://learn.microsoft.com/azure/templates/mic
 
 ![Conceptual reference architecture for single region secure baseline scenario](../../images/single_region_secure_baseline.png)
 
-*Download the Visio diagram for this architecture [here](/diagram/devbox-enterprise-scale-architecture.vsdx).*
+*Download the Visio diagram for this architecture [here](/diagrams/devbox-enterprise-scale-architecture.vsdx).*
 
 The subset of components being provisioned in this example are presented as part of a broader set of subscriptions and resources to provide context on their placement within the overall [Azure Landing Zone architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-architecture).
 
