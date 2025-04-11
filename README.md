@@ -12,6 +12,8 @@ The Dev Center accelerator slots into the wider enterprise-scale landing zone ar
 
 ![DevBox High-Level Architecture](/images/devbox-enterprise-scale-architecture.png)
 
+*Download the Visio diagram for this architecture [here](/diagrams/devbox-accelerator-diagrams.vsdx).*
+
 The accelerator is mainly concerned with what gets deployed in the landing zone subscription highlighted by the red boxes in the picture above. It is assumed that an appropriate platform foundation is already setup which may or may not be the official [ESLZ](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/) platform foundation. This means that policies and governance should already be in place or should be setup after this implementation and are not a part of the scope this reference implementation. The policies applied to management groups in the hierarchy above the subscription will trickle down to the Dev Center Landing Zone Accelerator landing zone subscription. Having a platform foundation is not mandatory, it just enhances it. The modularized approach used in this program allows the user to pick and choose whatever portion is useful to them. You don't have to use all the resources provided by this program.
 
 ## :mag: Design Areas
