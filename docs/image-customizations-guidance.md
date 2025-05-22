@@ -2,14 +2,13 @@
 
 ## Introduction
 
-
 This document is intended for **Dev Center Admins** and **Dev Center Project Admins (Team Leads)** who aim to provision Dev Boxes with pre-installed software and organizational policies tailored to their project needs.
 
 There are multiple approaches to image customization within the Dev Box environment:<br/>
 
 - **Full Custom Image** : A complete virtual machine image built outside the Dev Box environment using services like Azure Image Builder, published to an Azure Compute Gallery. This is often referred to as a *"one-size-fits-all"* golden image.
-- **Baseline Image with Team Customizations**: A foundational image created externally (e.g., via Azure Image Builder) and published to an Image Gallery, supplemented with additional configurations using the Dev Box **Team Customizations** feature, allowing flexible, persona-based setups.
-- **Team Customizations Only** : No external image creation is required. All configurations are executed within the Dev Box service using the **Team Customizations** feature, allowing flexible, persona-based setups.
+- **Baseline Image with Team Customizations**: A foundational image created externally (e.g., via Azure Image Builder) and published to an Image Gallery, supplemented with additional configurations using the Dev Box **Team Customizations** feature, allowing flexible, persona-based setups. This approach delegates some customization responsibilities (the ones not in the baseline image) from the central IT team to project administrators, empowering them to tailor configurations to their specific project needs
+- **Team Customizations Only** : No external image creation is required. All configurations are executed within the Dev Box service using the **Team Customizations** feature, allowing flexible, persona-based setups. This approach delegates customization responsibilities from the central IT team to project administrators, empowering them to tailor configurations to their specific project needs.
 
 ## Planning Your Custom Image
 
