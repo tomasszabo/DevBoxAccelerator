@@ -64,11 +64,27 @@ For **Full Custom Images** or **Baseline Images**, it is recommended to automate
 
 For those leveraging **Team Customizations** with the **pre-built image feature**, it is important to periodically rebuild the image to reflect any updates. As of this writing, automated scheduling and API-based triggers for image rebuilds are not yet available. Therefore, image rebuilds must be initiated manually through the Azure Portal. 
 
+### Using package managers
+
+**Using a private artifact / package manager**
+
+If you're leveraging the Teams customization feature and using a package manager hosted on a private network—such as Sonatype Nexus, JFrog Artifactory, MyGet, or ProGet—to install packages (i.e. private Chocolatey feeds), it's essential to ensure that your Dev Box can access this internal network.
+
+To enable this, you must configure the network connection in your **imagedefinition.yaml** file to allow connectivity to the private package manager:
+
+```yaml
+buildProperties:
+  networkConnection: "<value>"
+```
+
+replace `<value>` with the Azure Network Connection, defined in your Dev Center, that has access to your private package repository.
+
 ### Considerations
 
 We strongly recommend to configure a [Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/) for your Dev Boxes. Dev Drive is a new form of storage volume available to _improve performance for key developer workloads_.
 
 If you are using Team Customizations (or user customizations), a dev-drive task is available [here](https://github.com/dstamand-msft/Devbox-Customizations/tree/main/Tasks/dev-drive) to be used in your configurations.
+
 
 ### References and additional resources
 - [Microsoft Dev Box customizations
