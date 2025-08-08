@@ -4,7 +4,7 @@
 
 This document is intended for **Dev Center Admins** and **Dev Center Project Admins (Team Leads)** who aim to provision Dev Boxes with pre-installed software and organizational policies tailored to their project needs.
 
-There are multiple approaches to image customization within the Dev Box environment:<br/>
+There are multiple approaches to image customization within the Dev Box environment:
 
 - **Full Custom Image** : A complete virtual machine image built outside the Dev Box environment using services like Azure Image Builder, published to an Azure Compute Gallery. This is often referred to as a *"one-size-fits-all"* golden image.
 - **Baseline Image with Team Customizations**: A foundational image created externally (e.g., via Azure Image Builder) and published to an Image Gallery, supplemented with additional configurations using the Dev Box **Team Customizations** feature, allowing flexible, persona-based setups. This approach delegates some customization responsibilities (the ones not in the baseline image) from the central IT team to project administrators, empowering them to tailor configurations to their specific project needs
@@ -14,13 +14,15 @@ There are multiple approaches to image customization within the Dev Box environm
 
 ### Determining the customization approach to choose and developer personas
 
-The following decision tree can help you pick which approach to use:<br/><br/>
+The following decision tree can help you pick which approach to use:
+
 ![Image Customization decision tree](./images/Dev%20Box%20LZA%20Image%20Decision%20Tree.png)
 
 When implementing team customizations, it is recommended to define the developer or user personas who will be using the Dev Boxes. This enables targeted configurations tailored to each persona’s specific needs. For example, if your team includes distinct roles such as backend developers, frontend developers, AI engineers, data scientists, and QA engineers, each group may require different tools and environments. To avoid unnecessary bloat and ensure efficiency, we recommend creating separate customizations for each persona.
 
 ### Selecting base images
-The choice of base image may vary depending on your selected approach—whether using a custom image or team customization. In either case, we recommend starting with a Dev Box-compatible base image that includes hibernation support to ensure optimal performance and compatibility.<br/>
+The choice of base image may vary depending on your selected approach—whether using a custom image or team customization. In either case, we recommend starting with a Dev Box-compatible base image that includes hibernation support to ensure optimal performance and compatibility.
+
 To list available images in Dev Box, use the following command:
 
 ```shell
@@ -81,12 +83,11 @@ replace `<value>` with the Azure Network Connection, defined in your Dev Center,
 
 ### Considerations
 
-We strongly recommend to configure a [Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/) for your Dev Boxes. Dev Drive is a new form of storage volume available to _improve performance for key developer workloads_.
+We strongly recommend configuring a [Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/) for your Dev Boxes. Dev Drive is a new form of storage volume available to _improve performance for key developer workloads_.
 
 If you are using Team Customizations (or user customizations), a dev-drive task is available [here](https://github.com/dstamand-msft/Devbox-Customizations/tree/main/Tasks/dev-drive) to be used in your configurations.
 
 
 ### References and additional resources
-- [Microsoft Dev Box customizations
-](https://learn.microsoft.com/en-us/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations)
+- [Microsoft Dev Box customizations](https://learn.microsoft.com/en-us/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations)
 - [Sample Team Customizations YAML](https://github.com/dstamand-msft/Devbox-Customizations/blob/main/teams-customizations.yaml)
