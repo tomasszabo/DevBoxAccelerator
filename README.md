@@ -33,7 +33,7 @@ If you're new to Dev Box, watch this video for a high-level overview of the arch
 | Security|[TBC](TBC)|[TBC](https://learn.microsoft.com/en-us/azure/dev-box/concept-dev-box-deployment-guide#step-3-configure-security-groups-for-role-based-access-control)|
 | Micrsoft Intune Integration |[Design Considerations](https://learn.microsoft.com/en-us/azure/dev-box/concept-dev-box-architecture#microsoft-intune-integration)|[Design Recommendations](https://learn.microsoft.com/en-us/azure/dev-box/concept-dev-box-deployment-guide#step-11-configure-microsoft-intune)|
 | Application Management |[TBC](TBC)|[TBC](TBC)|
-| Image Management |[TBC](TBC)|[TBC](TBC)|
+| Image Management |[TBC](TBC)|[Design Recommendations](./docs/image-customizations-guidance.md)|
 
 
 ## :rocket: Deployment Scenarios
