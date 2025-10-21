@@ -12,7 +12,7 @@ var network = config.networks[networkIndex]
 var subnets = network.?subnets ?? []
 var subnetId = network.type == 'Reference' ? network.subnetId : networkResource.properties.subnets[0].id
 
-resource networkResource 'Microsoft.Network/virtualNetworks@2024-05-01' = if (network.type == 'Definition') {
+resource networkResource 'Microsoft.Network/virtualNetworks@2024-10-01' = if (network.type == 'Definition') {
   name: network.name
   location: resourceGroup().location
   properties: {
@@ -28,7 +28,7 @@ resource networkResource 'Microsoft.Network/virtualNetworks@2024-05-01' = if (ne
   }
 }
 
-resource networkConnection 'Microsoft.DevCenter/networkConnections@2024-10-01-preview' = {
+resource networkConnection 'Microsoft.DevCenter/networkConnections@2025-07-01-preview' = {
   name: network.name
   location: resourceGroup().location
   properties: {

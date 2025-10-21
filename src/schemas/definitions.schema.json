@@ -47,7 +47,9 @@
 				"Central India",
 				"East Asia",
 				"North Europe",
-				"Korea Central"
+				"Korea Central",
+				"Germany West Central",
+				"Sweden Central"
 			]
 		},
 		"devboxsku": {
@@ -82,7 +84,7 @@
 				"subnetId", "name", "type"
 			]
 		},
-		"networkDefintiion": {
+		"networkDefinition": {
 			"type": "object",
 			"properties": {
 				"name": {

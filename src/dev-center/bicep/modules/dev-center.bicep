@@ -4,7 +4,7 @@ param config object
 
 var devBoxConfig = config.features.devBox
 
-resource dc 'Microsoft.DevCenter/devcenters@2024-10-01-preview' = {
+resource dc 'Microsoft.DevCenter/devcenters@2025-07-01-preview' = {
   name: config.name
   location: config.location
   identity: {
@@ -23,7 +23,7 @@ resource dc 'Microsoft.DevCenter/devcenters@2024-10-01-preview' = {
   }
 }
 
-resource workspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
+resource workspace 'Microsoft.OperationalInsights/workspaces@2025-02-01' = {
   name: config.name
   location: config.location
   properties: {

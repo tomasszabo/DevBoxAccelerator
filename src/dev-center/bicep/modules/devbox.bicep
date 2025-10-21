@@ -8,7 +8,7 @@ var galleryConfig = devBoxConfig.?gallery
 var galleryName = galleryConfig == null ? '' : replace(galleryConfig.name, '-', '_')
 var devBoxDefinitions = devBoxConfig.?definitions ?? []
 
-resource devCenter 'Microsoft.DevCenter/devcenters@2024-10-01-preview' existing = {
+resource devCenter 'Microsoft.DevCenter/devcenters@2025-07-01-preview' existing = {
   name: config.name
 }
 
@@ -45,7 +45,7 @@ resource roleAssignmentReader 'Microsoft.Authorization/roleAssignments@2022-04-0
   }
 }
 
-resource attachGallery 'Microsoft.DevCenter/devcenters/galleries@2023-10-01-preview' = if(!empty(galleryName)) {
+resource attachGallery 'Microsoft.DevCenter/devcenters/galleries@2025-07-01-preview' = if(!empty(galleryName)) {
   name: gallery.name
   parent: devCenter
   dependsOn: [
@@ -58,7 +58,7 @@ resource attachGallery 'Microsoft.DevCenter/devcenters/galleries@2023-10-01-prev
   }
 }
 
-resource devBoxDefinition 'Microsoft.DevCenter/devcenters/devboxdefinitions@2024-10-01-preview' = [for item in devBoxDefinitions: {
+resource devBoxDefinition 'Microsoft.DevCenter/devcenters/devboxdefinitions@2025-07-01-preview' = [for item in devBoxDefinitions: {
   name: item.name
   location: config.location
   parent: devCenter

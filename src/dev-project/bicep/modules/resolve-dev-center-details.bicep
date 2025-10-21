@@ -2,7 +2,7 @@ targetScope = 'resourceGroup'
 
 param devCenterName string
 
-resource dc 'Microsoft.DevCenter/devcenters@2024-10-01-preview' existing = {
+resource dc 'Microsoft.DevCenter/devcenters@2025-07-01-preview' existing = {
   name: devCenterName
 }
 

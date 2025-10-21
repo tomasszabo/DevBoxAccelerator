@@ -154,7 +154,7 @@
                         "description": "Reference to an existing subnet that already exists"
                     },
                     {
-                        "$ref": "./definitions.schema.json#/$defs/networkDefintiion",
+                        "$ref": "./definitions.schema.json#/$defs/networkDefinition",
                         "additionalProperties": false,
                         "description": "Defines a new subnet to be created as part of this deployment"
                     }

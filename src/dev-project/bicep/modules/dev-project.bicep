@@ -11,7 +11,7 @@ var devBoxPools = devBoxConfig.?pools ?? []
 var devBoxPoolsManagedReferenceItems = filter(devBoxPools, item => contains(item, 'networkRegions'))
 var devBoxPoolsUnmanagedReferenceItems = filter(devBoxPools, item => contains(item, 'networkName'))
 
-resource devProject 'Microsoft.DevCenter/projects@2024-10-01-preview' = {
+resource devProject 'Microsoft.DevCenter/projects@2025-07-01-preview' = {
   name: config.name
   location: resourceGroup().location
   properties: {
@@ -29,7 +29,7 @@ module network 'network.bicep' = [for index in range(0, length(networks)): {
   }
 }]
 
-resource devBoxPoolManagedReference 'Microsoft.DevCenter/projects/pools@2024-10-01-preview' = [for item in devBoxPoolsManagedReferenceItems: if (!contains(item.definition, 'sku')) {  
+resource devBoxPoolManagedReference 'Microsoft.DevCenter/projects/pools@2025-07-01-preview' = [for item in devBoxPoolsManagedReferenceItems: if (!contains(item.definition, 'sku')) {  
   name: item.name
   location: resourceGroup().location
   parent: devProject
@@ -46,7 +46,7 @@ resource devBoxPoolManagedReference 'Microsoft.DevCenter/projects/pools@2024-10-
   }
 }]
 
-resource devBoxPoolUnmanagedReference 'Microsoft.DevCenter/projects/pools@2024-10-01-preview' = [for item in devBoxPoolsUnmanagedReferenceItems: if (!contains(item.definition, 'sku')) {
+resource devBoxPoolUnmanagedReference 'Microsoft.DevCenter/projects/pools@2025-07-01-preview' = [for item in devBoxPoolsUnmanagedReferenceItems: if (!contains(item.definition, 'sku')) {
   name: item.name
   location: resourceGroup().location
   parent: devProject

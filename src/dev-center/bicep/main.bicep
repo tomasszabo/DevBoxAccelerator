@@ -5,7 +5,7 @@ param windows365PrincipalId string
 
 var devBoxEnabled = contains(config.features, 'devBox')
 
-resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+resource rg 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: config.resourceGroup
   location: config.location
 }

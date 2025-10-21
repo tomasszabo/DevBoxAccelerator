@@ -1,20 +1,20 @@
 {
     "$schema": "../../schemas/dev-center.schema.json",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "name": "contoso-dev-center",
-    "resourceGroup": "rg-contoso-dev-center",
-    "location": "UK South",
+    "subscriptionId": "...",
+    "name": "devbox-demo-dev-center-01",
+    "resourceGroup": "devbox-demo-01-rg",
+    "location": "Sweden Central",
     "settings": {
         "enableCatalogsPerProject": true
     },
     "features": {
         "devBox": {
             "settings": {
-                "allowMicrosoftHostedNetworkInProjects": true,
+                "allowMicrosoftHostedNetworkInProjects": false,
                 "enableAzureMonitorAgentInstallation": false
             },
             "gallery": {
-                "name": "contoso-dev-box-gallery"
+                "name": "devbox-demo-gallery-01"
             },
             "definitions": [
                 {

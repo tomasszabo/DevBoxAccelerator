@@ -1,9 +1,28 @@
 {
     "$schema": "../../schemas/dev-project.schema.json",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "name": "contoso-dev-project",
-    "resourceGroup": "rg-contoso-dev-project",
-    "devCenterId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-contoso-dev-center/providers/Microsoft.DevCenter/devcenters/contoso-dev-center",
+    "subscriptionId": "...",
+    "name": "devbox-demo-project-01",
+    "resourceGroup": "devbox-demo-project-01-rg",
+    "devCenterId": "...",
+    "networks": [
+        {
+            "type": "Definition",
+            "name": "devbox-demo-vnet-01",
+            "addressPrefixes": [
+                "10.0.0.0/16"
+            ],
+            "subnets": [
+                {
+                    "name": "default",
+                    "addressPrefix": "10.0.0.0/24"
+                },
+                {
+                    "name": "devbox",
+                    "addressPrefix": "10.0.1.0/24"
+                }
+            ]
+        }
+    ],
     "features": {
         "devBox": {
             "pools": [
@@ -14,12 +33,10 @@
                         "name": "VS2022EntBox"
                     },
                     "settings": {
-                        "enableLocalAdmin": false,
-                        "enableSingleSignOn": false
+                        "enableLocalAdmin": true,
+                        "enableSingleSignOn": true
                     },
-                    "networkRegions": [
-                        "UK South"
-                    ]
+                    "networkName": "devbox-demo-vnet-02"
                 },
                 {
                     "name": "contoso-pool-b",
@@ -28,12 +45,10 @@
                         "name": "VS2022EntBox"
                     },
                     "settings": {
-                        "enableLocalAdmin": false,
-                        "enableSingleSignOn": false
+                        "enableLocalAdmin": true,
+                        "enableSingleSignOn": true
                     },
-                    "networkRegions": [
-                        "West Europe"
-                    ]
+                    "networkName": "devbox-demo-vnet-02"
                 }
             ]
         }
